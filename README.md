@@ -1,6 +1,6 @@
 # iris-widget
 
-Angular 14.3.0 / Node 16.20.2 | custom element `<meridian-iris-widget>` | version 1.9.4 | owner **retail-digital**
+Angular 14.3.0 / Node 16.20.2 | custom element `<northgate-iris-widget>` | version 1.9.4 | owner **retail-digital**
 
 The Iris virtual assistant chat panel, packaged as a web component through Angular Elements and
 loaded at runtime by host pages. It is not an application. There is no router, no login, no
@@ -43,7 +43,7 @@ less than you would think and more than we would like.
 
 ```
 nvm use                 # 16.20.2
-npm ci                  # .npmrc points at the local Verdaccio for @meridian/*, legacy-peer-deps is in there too
+npm ci                  # .npmrc points at the local Verdaccio for @northgate/*, legacy-peer-deps is in there too
 npm run lint
 npm test -- --watch=false
 npm run build:prod      # ng build + scripts/postbuild.js
@@ -52,11 +52,11 @@ npm run harness:check   # headless Chrome loads dist/ into a plain page and asse
 
 `npm start` serves the dev shell (`src/index.html`) on **4205** with a fake host: the shell loads
 Zone.js itself and puts the element on the page with a local orchestrator URL and an unsigned
-token that the orchestrator accepts under `MERIDIAN_AUTH_MODE=insecure-local`. Start the
+token that the orchestrator accepts under `NORTHGATE_AUTH_MODE=insecure-local`. Start the
 orchestrator first:
 
 ```
-cd ../meridian-platform-services/services/iris-orchestrator && MERIDIAN_AUTH_MODE=insecure-local npm start
+cd ../northgate-platform-services/services/iris-orchestrator && NORTHGATE_AUTH_MODE=insecure-local npm start
 ```
 
 Without it you get the "Iris isn't available right now" system message and a red toast, which is
@@ -107,19 +107,19 @@ is reached through the host's ingress at `/iris/v1/*` unless `orchestrator-url` 
 Not `type="module"`. Not inside the Angular app's `scripts` array (that bundles it and defeats the
 point of loading it at runtime). retail-web's help page component appends the tag on init and
 removes nothing on destroy, because custom elements cannot be undefined; the second visit to the
-help page finds `customElements.get('meridian-iris-widget')` already set and `main.ts` returns
+help page finds `customElements.get('northgate-iris-widget')` already set and `main.ts` returns
 early.
 
 **Element.**
 
 ```html
-<meridian-iris-widget
-  orchestrator-url="https://online.meridiantrust.example"   optional; default is same-origin, /iris/v1 is appended
+<northgate-iris-widget
+  orchestrator-url="https://online.northgatetrust.example"   optional; default is same-origin, /iris/v1 is appended
   channel="retail-web"                                      informational, goes in X-Iris-Channel
   bearer-token="..."                                        the customer's Keystone access token. Required to chat.
   sprite-url="/assets/widgets/assets/canopy/canopy-sprite.svg"   optional; this is the default
   open                                                      optional; opens the panel on mount
-></meridian-iris-widget>
+></northgate-iris-widget>
 ```
 
 Attributes are dash-case and map to inputs. The host sets `bearer-token` after login and clears it

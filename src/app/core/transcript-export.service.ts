@@ -13,7 +13,7 @@ import { ChatMessage } from '../models/chat';
 export class TranscriptExportService {
   render(messages: ChatMessage[], startedAt: Date | null, sessionId: string | null): string {
     const lines: string[] = [];
-    lines.push('Meridian Trust Bank - Iris conversation');
+    lines.push('Northgate Trust Bank - Iris conversation');
     lines.push(`Started: ${(startedAt ?? new Date()).toISOString()}`);
     if (sessionId) {
       lines.push(`Reference: ${sessionId}`);

@@ -3,9 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CnButtonModule, CnIconButtonModule } from '@meridian/canopy-ui/actions';
-import { CN_ICON_SPRITE_URL, CnIconModule } from '@meridian/canopy-ui/icons';
-import { CnToastModule } from '@meridian/canopy-ui/overlays';
+import { CnButtonModule, CnIconButtonModule } from '@northgate/canopy-ui/actions';
+import { CN_ICON_SPRITE_URL, CnIconModule } from '@northgate/canopy-ui/icons';
+import { CnToastModule } from '@northgate/canopy-ui/overlays';
 
 import { ChatPanelComponent } from '../panel/chat-panel/chat-panel.component';
 import { ComposerComponent } from '../panel/composer/composer.component';

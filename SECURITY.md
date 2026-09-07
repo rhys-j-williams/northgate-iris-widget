@@ -1,13 +1,13 @@
 # Application security notes — Iris assistant widget
 
-Owner: @meridian/retail-digital. Reviewer: @meridian/gis-appsec. Standard reference: GIS-STD-014
+Owner: @northgate/retail-digital. Reviewer: @northgate/gis-appsec. Standard reference: GIS-STD-014
 Application Security Requirements for Internet Facing and Internal Digital Channels, revision 9,
 effective 1 February 2026. Tier 2 (no money movement, no credential entry).
 
 ## Reporting
 
 Suspected vulnerabilities go to the Global Information Security intake queue
-(`gis-appsec-intake@meridian.internal`) with the component name `iris-widget` and, if the finding came
+(`gis-appsec-intake@northgate.internal`) with the component name `iris-widget` and, if the finding came
 from a scan, the Checkmarx or Xray report identifier. Do not raise a public issue and do not
 attach exploit payloads to a Jira ticket.
 
