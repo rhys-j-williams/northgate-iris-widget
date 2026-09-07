@@ -56,7 +56,7 @@ token that the orchestrator accepts under `MERIDIAN_AUTH_MODE=insecure-local`. S
 orchestrator first:
 
 ```
-cd ../platform-services/iris-orchestrator && MERIDIAN_AUTH_MODE=insecure-local npm start
+cd ../meridian-platform-services/services/iris-orchestrator && MERIDIAN_AUTH_MODE=insecure-local npm start
 ```
 
 Without it you get the "Iris isn't available right now" system message and a red toast, which is
