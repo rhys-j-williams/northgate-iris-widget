@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { CnToastService } from '@meridian/canopy-ui/overlays';
+import { CnToastService } from '@northgate/canopy-ui/overlays';
 import { of, throwError } from 'rxjs';
 
 import { ChatMessage } from '../models/chat';

@@ -49,7 +49,7 @@ Contract-relevant changes only. Everything else is in the git log. Versions are 
 - **Breaking for hosts:** Zone.js no longer bundled. Host must provide it (ADR 0002, IRIS-0402).
 
 ## 1.1.0 - 2022-07
-- Angular Elements build; `<meridian-iris-widget>` registered (ADR 0001).
+- Angular Elements build; `<northgate-iris-widget>` registered (ADR 0001).
 
 ## 1.0.0 - 2022-06
 - Extracted from retail-web `/help/chat`.

@@ -3,9 +3,9 @@
 // This is not a service. Nothing here deploys. The "container" block builds an nginx image that
 // serves dist/ for the sandbox cluster and for the harness job; production delivery is the host
 // (retail-web) vendoring the artefact from Artifactory. See docs/runbooks/release.md.
-@Library('meridian-pipeline@v3') _
+@Library('northgate-pipeline@v3') _
 
-meridianNodePipeline(
+northgateNodePipeline(
   agentLabel: 'nodejs16-rhel8',
   nodeVersion: '16.20.2',
   jiraProject: 'IRIS',
@@ -24,7 +24,7 @@ meridianNodePipeline(
     // No minimum. IRIS-0490. Sonar reports it.
   ],
   sonar: [
-    projectKey: 'meridian:iris-widget',
+    projectKey: 'northgate:iris-widget',
     propertiesFile: 'sonar-project.properties'
   ],
   checkmarx: [

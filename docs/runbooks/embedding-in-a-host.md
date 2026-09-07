@@ -21,7 +21,7 @@ For host teams. retail-web already does all of this; see their `help-page.compon
    `/assets/` are long.
 3. Add `<script src="/assets/widgets/iris.js" defer></script>` to the page, or append it from code
    when the page that needs it activates. Do not add it to your Angular `scripts` array.
-4. Put `<meridian-iris-widget>` in the DOM with `bearer-token` set once you have a token. The
+4. Put `<northgate-iris-widget>` in the DOM with `bearer-token` set once you have a token. The
    attribute list is in the README under "Mount contract".
 5. Listen for `irisOpen` / `irisClose` on the element if you want analytics.
 6. Check the browser console on first load. `[iris-widget] Zone.js is not present on the page`

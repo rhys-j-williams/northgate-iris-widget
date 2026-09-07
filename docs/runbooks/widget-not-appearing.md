@@ -14,7 +14,7 @@ Not paged. Picked up by whoever is on retail-digital rotation the next working m
      the template asks for the stable one. Check `iris.manifest.json` in their deployed assets
      against what `help-page.component.ts` loads. This was INC0155002 (their vendor script ran
      before our artefact was published; the pipeline ordering was fixed in TOOL-1140).
-3. Is `customElements.get('meridian-iris-widget')` defined in the console?
+3. Is `customElements.get('northgate-iris-widget')` defined in the console?
    - No, and no `[iris-widget]` error: bundle loaded but threw before `main.ts` ran. Almost always
      a Zone version problem after a host deploy. Compare `zoneJsCompatible` in the manifest with
      retail-web's `package-lock.json` `zone.js` entry. ADR 0002.

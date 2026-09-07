@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 /**
- * Per-mount configuration. Comes from attributes on <meridian-iris-widget>, set by the host page;
+ * Per-mount configuration. Comes from attributes on <northgate-iris-widget>, set by the host page;
  * see README "Mount contract". Defaults are for the dev shell and the harness.
  *
  * bearerToken: the orchestrator binds a session to the customer in the Keystone token, so the host

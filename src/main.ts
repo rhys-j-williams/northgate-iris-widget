@@ -10,7 +10,7 @@ import { environment } from './environments/environment';
  * Entry point for the Iris widget bundle.
  *
  * This is not a normal Angular bootstrap. The module has no bootstrap component; we create the
- * platform, instantiate the module, and register `<meridian-iris-widget>` as a custom element that
+ * platform, instantiate the module, and register `<northgate-iris-widget>` as a custom element that
  * the host page mounts wherever it likes. retail-web does it on /help (MOL-4120), the marketing
  * site tried and gave up (IRIS-0388, their CMS strips unknown elements).
  *
@@ -22,7 +22,7 @@ import { environment } from './environments/environment';
  * stops receiving change detection (it does not throw, it just goes quiet). This is IRIS-0402 on
  * the platform risk register; the widget team's position on it is in README and docs/adr/0002.
  */
-const ELEMENT_TAG = 'meridian-iris-widget';
+const ELEMENT_TAG = 'northgate-iris-widget';
 
 declare const Zone: unknown;
 

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
-import { CnToastService } from '@meridian/canopy-ui/overlays';
+import { CnToastService } from '@northgate/canopy-ui/overlays';
 
 import { ChatSessionService } from '../../core/chat-session.service';
 import { TranscriptExportService } from '../../core/transcript-export.service';

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { CnIconRegistry } from '@meridian/canopy-ui/icons';
+import { CnIconRegistry } from '@northgate/canopy-ui/icons';
 
 import { ChatSessionService } from '../core/chat-session.service';
 import { OrchestratorClientService } from '../core/orchestrator-client.service';
@@ -8,7 +8,7 @@ import { DEFAULT_WIDGET_CONFIG, IRIS_WIDGET_CONFIG, IrisWidgetConfig } from '../
 import { environment } from '../../environments/environment';
 
 /**
- * The component behind <meridian-iris-widget>. Attributes on the element arrive as inputs
+ * The component behind <northgate-iris-widget>. Attributes on the element arrive as inputs
  * (Angular Elements maps orchestrator-url to orchestratorUrl and so on).
  *
  * Providers are declared here rather than on the module so that every mounted element gets its own

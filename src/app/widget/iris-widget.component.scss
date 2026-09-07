@@ -1,4 +1,4 @@
-@use '@meridian/canopy-ui/tokens/css-vars' as canopy-vars;
+@use '@northgate/canopy-ui/tokens/css-vars' as canopy-vars;
 @use 'tokens' as iris;
 
 // Every Canopy custom property is emitted on .iris-root, not :root, because we do not own :root.

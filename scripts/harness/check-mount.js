@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable */
 /**
- * Proves the built bundle registers and renders <meridian-iris-widget> in a plain HTML page.
+ * Proves the built bundle registers and renders <northgate-iris-widget> in a plain HTML page.
  * Starts serve.js, points headless Chrome at it with --dump-dom, and looks for the
  * data-iris-mounted attribute that harness/index.html sets. Exit 0 on MOUNTED, 1 otherwise.
  *
@@ -55,8 +55,8 @@ server.once('listening', () => {
         console.log(logMatch[1].replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim());
       }
       const manifest = JSON.parse(fs.readFileSync(path.join(dist, 'iris.manifest.json'), 'utf8'));
-      if (/data-iris-mounted="true"/.test(dom) && /<meridian-iris-widget[\s\S]*class="iris-root/.test(dom)) {
-        console.log(`[check-mount] MOUNTED: ${manifest.file} registered <meridian-iris-widget> and rendered the panel`);
+      if (/data-iris-mounted="true"/.test(dom) && /<northgate-iris-widget[\s\S]*class="iris-root/.test(dom)) {
+        console.log(`[check-mount] MOUNTED: ${manifest.file} registered <northgate-iris-widget> and rendered the panel`);
         code = 0;
       } else {
         console.error('[check-mount] FAILED: element did not mount. DOM follows.');
