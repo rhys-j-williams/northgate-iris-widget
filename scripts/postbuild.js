@@ -47,7 +47,7 @@ if (/Zone already loaded|__zone_symbol__ZONE_ALREADY|zone\.js\/fesm2015/.test(by
 fs.copyFileSync(src, path.join(dist, 'iris.js'));
 
 const manifest = {
-  element: 'meridian-iris-widget',
+  element: 'northgate-iris-widget',
   file: hashed,
   stable: 'iris.js',
   bytes: bytes.length,

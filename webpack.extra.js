@@ -6,7 +6,7 @@
 // (singleBundle) but the runtime still registers the global.
 module.exports = {
   output: {
-    uniqueName: 'meridianIrisWidget',
+    uniqueName: 'northgateIrisWidget',
   },
   // zone.js is deliberately NOT bundled. The host page provides it, see README "Zone.js" and
   // IRIS-0402. If you find yourself adding it back, stop and read that first.

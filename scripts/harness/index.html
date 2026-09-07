@@ -27,12 +27,12 @@
 
   <!-- 3. the element. bearer-token is an unsigned local JWT; the orchestrator is not running here
           and that is fine, the mount does not need it. -->
-  <meridian-iris-widget
+  <northgate-iris-widget
     orchestrator-url="http://localhost:4517"
     channel="harness"
     sprite-url="/assets/widgets/assets/canopy/canopy-sprite.svg"
     bearer-token="eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJjdXN0LTAwMDEiLCJzY29wZSI6ImlyaXM6Y2hhdCJ9."
-    open></meridian-iris-widget>
+    open></northgate-iris-widget>
 
   <script>
     (function () {
@@ -43,11 +43,11 @@
 
       say('zone present before bundle: ' + (typeof Zone !== 'undefined'));
 
-      customElements.whenDefined('meridian-iris-widget').then(function () {
-        say('customElements.define fired for meridian-iris-widget');
+      customElements.whenDefined('northgate-iris-widget').then(function () {
+        say('customElements.define fired for northgate-iris-widget');
         // give Angular a tick to render
         setTimeout(function () {
-          var el = document.querySelector('meridian-iris-widget');
+          var el = document.querySelector('northgate-iris-widget');
           var root = el && el.querySelector('.iris-root');
           var launcher = el && el.querySelector('.iris-launcher');
           var panel = el && el.querySelector('#iris-panel');

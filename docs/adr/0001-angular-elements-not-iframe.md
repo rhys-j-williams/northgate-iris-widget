@@ -5,7 +5,7 @@ cswt-architecture 2022-06-21.
 
 ## Context
 
-Iris v1 was a page inside retail-web (`/help/chat`). Product want it on every Meridian page,
+Iris v1 was a page inside retail-web (`/help/chat`). Product want it on every Northgate page,
 including business-web (Angular 12, different team, different release train) and the marketing
 pages (no Angular at all). Copying the component into three codebases was rejected before we got
 to the meeting.
@@ -41,5 +41,5 @@ Option 3 was a rewrite of a thing we had just written, by a team of two.
 - No lazy loading anywhere in the widget, because a second chunk has no server to come from
   (ADR 0003).
 - business-web never took it. The marketing pages did, briefly, and dropped it when the CMS vendor
-  changed. So the "every Meridian page" goal produced exactly one host, retail-web, which is also
+  changed. So the "every Northgate page" goal produced exactly one host, retail-web, which is also
   where it started. The architecture is still right; the business case was optimistic.

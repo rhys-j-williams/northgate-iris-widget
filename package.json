@@ -1,7 +1,7 @@
 {
-  "name": "@meridian/iris-widget",
+  "name": "@northgate/iris-widget",
   "version": "1.9.4",
-  "description": "Iris virtual assistant chat widget. Angular Elements custom element <meridian-iris-widget>, shipped as one bundle for host pages to load at runtime.",
+  "description": "Iris virtual assistant chat widget. Angular Elements custom element <northgate-iris-widget>, shipped as one bundle for host pages to load at runtime.",
   "private": true,
   "license": "UNLICENSED",
   "engines": {
@@ -31,7 +31,7 @@
     "@angular/material": "14.2.7",
     "@angular/platform-browser": "14.3.0",
     "@angular/platform-browser-dynamic": "14.3.0",
-    "@meridian/canopy-ui": "3.7.2",
+    "@northgate/canopy-ui": "3.7.2",
     "rxjs": "7.5.7",
     "tslib": "2.4.1",
     "zone.js": "0.11.8"
@@ -45,7 +45,7 @@
     "@angular-eslint/template-parser": "14.4.0",
     "@angular/cli": "14.2.13",
     "@angular/compiler-cli": "14.3.0",
-    "@meridian/domain-fixtures": "1.6.0",
+    "@northgate/domain-fixtures": "1.6.0",
     "@types/jasmine": "4.0.3",
     "@types/node": "16.18.11",
     "@typescript-eslint/eslint-plugin": "5.43.0",
