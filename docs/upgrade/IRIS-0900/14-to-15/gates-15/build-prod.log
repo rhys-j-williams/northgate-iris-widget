@@ -1,0 +1,19 @@
+
+> @northgate/iris-widget@1.9.4 build:prod
+> ng build --configuration production && node scripts/postbuild.js
+
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+Initial Chunk Files      | Names         |  Raw Size | Estimated Transfer Size
+main.a02a28579e486dca.js | main          | 468.95 kB |               111.71 kB
+
+| Initial Total | 468.95 kB |               111.71 kB
+
+Build at: 2026-09-09T20:32:59.290Z - Hash: 27af99aa338dd0a3 - Time: 18366ms
+[postbuild] main.a02a28579e486dca.js (469.0 kB) -> iris.js, manifest written

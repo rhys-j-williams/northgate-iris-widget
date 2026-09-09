@@ -1,0 +1,10 @@
+{
+  "element": "northgate-iris-widget",
+  "file": "main.js",
+  "stable": "iris.js",
+  "bytes": 3800361,
+  "sha256": "158d5b8405de5593c9466a5926b94d60774d51297ffeb56d919cb7a629a39d27",
+  "angular": "15.2.10",
+  "zoneJsCompatible": "0.12.0",
+  "builtAt": "2026-09-09T20:32:38.869Z"
+}

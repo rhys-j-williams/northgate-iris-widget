@@ -1,0 +1,9 @@
+
+> @northgate/iris-widget@1.9.4 lint
+> ng lint
+
+
+Linting "iris-widget"...
+
+All files pass linting.
+
