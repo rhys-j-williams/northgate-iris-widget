@@ -1,0 +1,69 @@
+# IRIS-0900 Angular 14 -> 15 deprecation and migration log (northgate-iris-widget)
+# Source: ng-update-core-cli-attempt1-peer-conflict.log, ng-update-core-cli.log, ng-update-material.log,
+#         ng-update-canopy-schematic.log, npm-install-canopy-4.0.0.log, npm-install-after-core-update.log,
+#         gates-15/build-prod.log, gates-15/test.log, gates-15/lint.log, gates-15/npm-ci.log in this directory.
+#
+# Step 1  npm install @northgate/canopy-ui@4.0.0 (exact, save-exact=true; local Verdaccio stand-in for Artifactory)
+#   - Canopy 4.0.0 peers @angular/* ^15.0.0; installed under legacy-peer-deps (already in .npmrc) ahead of the
+#     framework hop. The tree does not build at this commit alone (recorded in the commit body).
+#
+# Step 2  ng update @angular/core@15 @angular/cli@15               -> REFUSED (attempt1 log):
+#   - "@angular-eslint/schematics has an incompatible peer dependency to @angular/cli (requires >= 14.0.0 < 15.0.0,
+#      would install 15.2.11)". Re-run as
+#         ng update @angular/core@15 @angular/cli@15 @angular-eslint/schematics@15 --allow-dirty
+#   Migrations applied (ng-update-core-cli.log):
+#   - @angular-eslint/schematics "Updates @angular-eslint to v15"
+#       -> package.json: @angular-eslint/* 15.2.1; the schematic wrote eslint ^8.28.0 and @typescript-eslint/* ^5.43.0,
+#          re-pinned by hand to exact 8.28.0 / 5.43.0 (DEPENDENCY_POLICY: no ranges)
+#       -> angular.json: schematics defaults for @angular-eslint/schematics:* (setParserOptionsProject) added
+#   - @angular/cli "Remove Browserslist configuration files that match the CLI default"  -> no change
+#   - @angular/cli "Remove exported @angular/platform-server renderModule"                -> no change (no SSR)
+#   - @angular/cli "Remove no longer needed require calls in Karma builder main file"
+#       -> src/test.ts: the `declare const require` / `require.context` spec-discovery block removed; the CLI 15 karma
+#          builder discovers specs itself. getTestBed().initTestEnvironment(...) kept as it was.
+#   - @angular/cli "Update TypeScript compiler target and set useDefineForClassFields"
+#       -> tsconfig.json: target es2020 -> ES2022, useDefineForClassFields: false (IDE-only, the CLI forces both)
+#   - @angular/cli "Remove options from angular.json no longer supported by the official builders" -> no change
+#   - @angular/core "relativeLinkResolution removed from Router config"                    -> no change (no router)
+#   - @angular/core "RouterLinkWithHref -> RouterLink"                                     -> no change (no router)
+#   Versions written: @angular/* 15.2.10, @angular/cli + @angular-devkit/build-angular 15.2.11, typescript 4.9.5,
+#   zone.js 0.12.0 (stays in `dependencies`, shipped only as assets/vendor/zone.umd.min.js, never bundled: ADR 0002),
+#   ngx-build-plus 15.0.0 (npm-install-after-core-update.log).
+#
+# Step 3  ng update @angular/material@15 --allow-dirty (ng-update-material.log):
+#   - @angular/cdk "Updates the Angular CDK to v15"           -> no change
+#   - @angular/material "Updates the Angular Material to v15"
+#       -> src/app/iris-widget.module.ts: MatButtonModule import rewritten to
+#          `MatLegacyButtonModule as MatButtonModule` from '@angular/material/legacy-button'.
+#          REVERTED by hand to '@angular/material/button' (MDC): no Iris template renders mat-button / mat-icon-button
+#          (buttons are Canopy cn-button / cn-icon-button), so no legacy Material module is carried into the bundle
+#          and no legacy typography config is needed. MatIconModule is unchanged (MDC-less component).
+#   - Material 15 typography / density: Iris has no mat.define-typography-config, no mat.core(), no theme include
+#     (angular.json production `styles` is []; Canopy tokens are emitted per component into `.iris-root`).
+#     Nothing to rename. Dense scale not used (KAN-34: do not use dense/-2 in consumers).
+#
+# Step 4  npx ng update @northgate/canopy-ui --migrate-only --from=3.7.2 --to=4.0.0 --allow-dirty
+#   - canopy-4-theme-mixin (CNPY-2140, typography level rename $display-4..$input -> Material 15 names):
+#       "no Canopy typography overrides found, nothing to do."  -> no change. KAN-33 (rename table) therefore has no
+#       effect on Iris source; it can still move rendered metrics inside cn-toast / cn-button if Canopy's own scale
+#       changes before Artifactory publish (see REPORT.md s7).
+#   - Canopy 4 removed @angular/flex-layout as a peer: Iris never used fxLayout*, no change.
+#   - Canopy 4 MDC DOM (.mat-mdc-*/.mdc-*): grep for `.mat-` in src/**/*.scss|html -> 0 matches; nothing to replace.
+#   - Interim/legacy Canopy 4 components cn-amount-slider (KAN-27) and cn-filter-chips (KAN-28): grep in src -> 0 usages.
+#
+# Deprecations and warnings outstanding after the hop (none block; 0 build warnings in gates-15/build-prod.log,
+# 14/14 specs in gates-15/test.log, "All files pass linting" in gates-15/lint.log):
+#   - npm ci: 5 EBADENGINE warnings unchanged from baseline (packages whose `engines` want Node >= 18; Node stays
+#     16.20.2 per FRAMEWORK_SUPPORT_STANDARD and the wave plan) plus "npm WARN deprecated" for inflight, rimraf 3,
+#     glob 7, read-package-json, @npmcli/move-file, @babel/plugin-proposal-* (transitive dev tooling, same set as
+#     baseline npm-ci.log apart from the babel plugins that arrive with build-angular 15).
+#   - @angular/material 15.2.9 ships the legacy-* entry points as deprecated; Iris imports none of them after the
+#     revert above (grep '@angular/material/legacy' src -> 0).
+#   - Angular 15.2.10 is end of life (vendor support ended 2024-05-18): intermediate wave position, 15 -> 16 is the
+#     next hop and is NOT part of this branch (one major at a time).
+#   - eslint stays 8.28.0 (inside angular-eslint 15 peer ^7.20.0 || ^8.0.0); flat config needs angular-eslint >= 18. Acceptable on the 15 line.
+#   - @types/node 16.18.11 pin (README, TOOL-1201) kept; TypeScript 4.9 no longer needs it but moving it is not part
+#     of the hop.
+#   - assets/vendor/zone.umd.min.js (for hosts WITHOUT their own Zone: dev shell and harness only) is now 0.12.0.
+#     retail-web does not load it (README "Zone"), its own zone.js 0.11.8 is inside @angular/core@15.2.10's peer
+#     range "~0.11.4 || ~0.12.0 || ~0.13.0" and the host check passed against it (host-verification/).
