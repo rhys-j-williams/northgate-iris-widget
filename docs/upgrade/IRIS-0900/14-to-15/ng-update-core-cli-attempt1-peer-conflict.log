@@ -1,0 +1,16 @@
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 15.2.11 to perform the update.
+- Installing packages...
+✔ Packages successfully installed.
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+Using package manager: npm
+Collecting installed dependencies...
+Found 37 dependencies.
+Fetching dependency metadata from registry...
+                  Package "@angular-eslint/schematics" has an incompatible peer dependency to "@angular/cli" (requires ">= 14.0.0 < 15.0.0", would install "15.2.11").
+✖ Migration failed: Incompatible peer dependencies found.
+Peer dependency warnings when installing dependencies means that those dependencies might not work correctly together.
+You can use the '--force' option to ignore incompatible peer dependencies and instead address these warnings later.
+  See "/tmp/ng-F1SVfI/angular-errors.log" for further details.
+

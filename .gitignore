@@ -16,3 +16,6 @@ npm-debug.log*
 .cx-reports/
 .scannerwork/
 scripts/harness/dist/
+
+# Upgrade evidence (docs/upgrade/<KEY>/...) is deliberately committed, logs included.
+!docs/upgrade/**/*.log

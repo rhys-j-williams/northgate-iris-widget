@@ -1,0 +1,11 @@
+node v16.20.2 npm 8.19.4
+ng-version                   exit=0
+npm-ls-depth0                exit=0
+lint                         exit=0
+build-dev                    exit=0
+build-prod                   exit=0
+harness-check-mount          exit=0
+test                         exit=0
+npm-audit                    exit=1
+npm-audit-production         exit=1
+forbidden-strings            exit=0

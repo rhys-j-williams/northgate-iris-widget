@@ -1,0 +1,64 @@
+
+> @northgate/iris-widget@1.9.4 test
+> ng test --browsers=ChromeHeadlessCI --code-coverage --watch=false
+
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+09 09 2026 20:19:08.213:INFO [karma-server]: Karma v6.4.1 server started at http://localhost:9877/
+09 09 2026 20:19:08.215:INFO [launcher]: Launching browsers ChromeHeadlessCI with concurrency unlimited
+09 09 2026 20:19:08.217:INFO [launcher]: Starting browser ChromeHeadless
+09 09 2026 20:19:08.524:INFO [Chrome Headless 137.0.0.0 (Linux 0.0.0)]: Connected on socket ooqN7qoQfiULHeylAAAA with id 90981951
+Chrome Headless 137.0.0.0 (Linux 0.0.0): Executed 0 of 14 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 1 of 14 SUCCESS (0 secs / 0.017 secs)
+[1A[2KERROR: '[iris-widget] send failed', Error: boom
+Error: boom
+    at errorFactory (http://localhost:9877/_karma_webpack_/webpack:/src/app/core/chat-session.service.spec.ts:71:58)
+    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/throwError.js:5:51)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+    at Observable.subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:22:21)
+    at init (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/tap.js:15:20)
+    at OperatorSubscriber.call (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/lift.js:10:28)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:26:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+Chrome Headless 137.0.0.0 (Linux 0.0.0): Executed 1 of 14 SUCCESS (0 secs / 0.017 secs)
+ERROR: '[iris-widget] send failed', Error: boom
+Error: boom
+    at errorFactory (http://localhost:9877/_karma_webpack_/webpack:/src/app/core/chat-session.service.spec.ts:71:58)
+    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/throwError.js:5:51)
+    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+    at Observable.subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:22:21)
+    at init (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/tap.js:15:20)
+    at OperatorSubscriber.call (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/lift.js:10:28)
+    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:26:30)
+    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 2 of 14 SUCCESS (0 secs / 0.021 secs)
+[1A[2KERROR: '[iris-widget] session start failed', HttpErrorResponse{headers: HttpHeaders{normalizedNames: Map{}, lazyUpdate: null, headers: Map{}}, status: 401, statusText: 'Unknown Error', url: null, ok: false, name: 'HttpErrorResponse', message: 'Http failure response for (unknown url): 401 undefined', error: null}
+Chrome Headless 137.0.0.0 (Linux 0.0.0): Executed 2 of 14 SUCCESS (0 secs / 0.021 secs)
+ERROR: '[iris-widget] session start failed', HttpErrorResponse{headers: HttpHeaders{normalizedNames: Map{}, lazyUpdate: null, headers: Map{}}, status: 401, statusText: 'Unknown Error', url: null, ok: false, name: 'HttpErrorResponse', message: 'Http failure response for (unknown url): 401 undefined', error: null}
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 3 of 14 SUCCESS (0 secs / 0.023 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 4 of 14 SUCCESS (0 secs / 0.024 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 5 of 14 SUCCESS (0 secs / 0.025 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 6 of 14 SUCCESS (0 secs / 0.026 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 7 of 14 SUCCESS (0 secs / 0.029 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 8 of 14 SUCCESS (0 secs / 0.031 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 9 of 14 SUCCESS (0 secs / 0.032 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 10 of 14 SUCCESS (0 secs / 0.032 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 11 of 14 SUCCESS (0 secs / 0.032 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 12 of 14 SUCCESS (0 secs / 0.032 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 13 of 14 SUCCESS (0 secs / 0.121 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 14 of 14 SUCCESS (0 secs / 0.126 secs)
+[1A[2KChrome Headless 137.0.0.0 (Linux 0.0.0): Executed 14 of 14 SUCCESS (0.143 secs / 0.126 secs)
+TOTAL: 14 SUCCESS
+✔ Browser application bundle generation complete.
+
+=============================== Coverage summary ===============================
+Statements   : 77.55% ( 190/245 )
+Branches     : 69.07% ( 67/97 )
+Functions    : 81.81% ( 45/55 )
+Lines        : 77.31% ( 184/238 )
+================================================================================
+✔ Browser application bundle generation complete.

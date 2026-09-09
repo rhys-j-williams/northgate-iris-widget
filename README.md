@@ -1,6 +1,6 @@
 # iris-widget
 
-Angular 14.3.0 / Node 16.20.2 | custom element `<northgate-iris-widget>` | version 1.9.4 | owner **retail-digital**
+Angular 15.2.10 / Node 16.20.2 | custom element `<northgate-iris-widget>` | version 1.9.4 | owner **retail-digital**
 
 The Iris virtual assistant chat panel, packaged as a web component through Angular Elements and
 loaded at runtime by host pages. It is not an application. There is no router, no login, no
@@ -36,8 +36,8 @@ webpack.extra.js                  ngx-build-plus extras: uniqueName only
 ```
 
 Canopy: `cn-icon` (via MatIcon and the sprite), `cn-icon-button`, `cn-button`, `cn-toast` and the
-CSS variable tokens. Canopy 3.7.2, exact. See "Canopy and the host" for why the version matters
-less than you would think and more than we would like.
+CSS variable tokens. Canopy 4.0.0, exact (Angular 15 / Material MDC line; IRIS-0900). See "Canopy and
+the host" for why the version matters less than you would think and more than we would like.
 
 ## Build and run
 
@@ -62,8 +62,13 @@ cd ../northgate-platform-services/services/iris-orchestrator && NORTHGATE_AUTH_M
 Without it you get the "Iris isn't available right now" system message and a red toast, which is
 also a legitimate thing to test.
 
-`@types/node` is pinned to 16.18.11. Newer ones declare `Disposable` and TypeScript 4.7 cannot
-parse them (TOOL-1201). Do not float it.
+`@types/node` is pinned to 16.18.11. Newer ones declare `Disposable` and TypeScript 4.x cannot
+parse them (TOOL-1201; still true on 4.9). Do not float it.
+
+Toolchain, all exact (`.npmrc` `save-exact`): Angular 15.2.10, CLI 15.2.11, Material/CDK 15.2.9,
+TypeScript 4.9.5, zone.js 0.12.0 (tests, dev shell and harness only, see "Zone.js and the host page"),
+RxJS 7.5.7, angular-eslint 15.2.1, Node 16.20.2 / npm 8.19.4. The 14 -> 15 hop is IRIS-0900:
+`docs/upgrade/IRIS-0900/` and ADR 0004.
 
 ## Build output
 
@@ -151,7 +156,7 @@ That means **the widget's Angular must be compatible with the host's Zone.js ver
 | | Angular | Zone.js it loads / needs |
 |---|---|---|
 | retail-web (host) | 14.3.0 | 0.11.8 |
-| iris-widget | 14.3.0 | none bundled; built and tested against 0.11.8 |
+| iris-widget | 15.2.10 | none bundled; `@angular/core@15.2.10` accepts `~0.11.4 \|\| ~0.12.0 \|\| ~0.13.0`. Built and unit-tested against 0.12.0 (`zoneJsCompatible` in the manifest); mount verified against the host's 0.11.8 in a retail-web host page shape (`docs/upgrade/IRIS-0900/14-to-15/CONSUMERS.md`) |
 
 Angular checks the Zone it finds at runtime; a Zone that is too old for the widget's Angular fails
 at boot with an error about `Zone.__load_patch` or `ZoneAwarePromise`, and a Zone that is newer
@@ -177,8 +182,9 @@ the bundle, and `postbuild.js` will probably catch you first.
 
 ## Canopy and the host
 
-retail-web is on Canopy 3.5.0 and we are on 3.7.2. This is fine because Canopy components are
-compiled into our bundle and our tokens are scoped to `.iris-root`. It stops being fine if Canopy
+retail-web is on Canopy 3.7.2 and we are on 4.0.0 (Material MDC). This is fine because Canopy
+components are compiled into our bundle and our tokens are scoped to `.iris-root`; Material's MDC
+styles for our buttons live inside the bundle too, so nothing leaks either way. It stops being fine if Canopy
 ever moves the toast to a shared overlay container keyed by a global, or if two `CnIconRegistry`
 instances start fighting over `mat-icon` names (they do not today; ours is provided in our
 injector). The design system team know we exist. Probably.
@@ -229,6 +235,8 @@ Jasmine test at all.
 - `docs/adr/0001-angular-elements-not-iframe.md`
 - `docs/adr/0002-host-provides-zone.md`
 - `docs/adr/0003-single-bundle-stable-name.md`
+- `docs/adr/0004-angular-14-to-15-canopy-4.md`
+- `docs/upgrade/IRIS-0900/` (14 -> 15 evidence: REPORT, CAB_RECORD, CONSUMERS, COMPATIBILITY_MATRIX)
 - `docs/runbooks/embedding-in-a-host.md`
 - `docs/runbooks/widget-not-appearing.md`
 - `docs/runbooks/release.md`

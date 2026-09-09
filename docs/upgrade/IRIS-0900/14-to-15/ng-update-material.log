@@ -1,0 +1,27 @@
+Repository is not clean. Update changes will be mixed with pre-existing changes.
+Using package manager: npm
+Collecting installed dependencies...
+Found 37 dependencies.
+Fetching dependency metadata from registry...
+    Updating package.json with dependency @angular/cdk @ "15.2.9" (was "14.2.7")...
+    Updating package.json with dependency @angular/material @ "15.2.9" (was "14.2.7")...
+UPDATE package.json (2229 bytes)
+- Installing packages...
+✔ Packages successfully installed.
+** Executing migrations of package '@angular/cdk' **
+
+▸ Updates the Angular CDK to v15.
+    
+      ✓  Updated Angular CDK to version 15
+    
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/material' **
+
+▸ Updates the Angular Material to v15.
+    
+      ✓  Updated Angular Material to version 15
+    
+UPDATE src/app/iris-widget.module.ts (3321 bytes)
+  Migration completed (1 file modified).
+
