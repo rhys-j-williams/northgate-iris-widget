@@ -53,7 +53,7 @@ const manifest = {
   bytes: bytes.length,
   sha256: crypto.createHash('sha256').update(bytes).digest('hex'),
   angular: require('../node_modules/@angular/core/package.json').version,
-  zoneJsCompatible: require('../package.json').devDependencies['zone.js'],
+  zoneJsCompatible: require('../package.json').dependencies['zone.js'],
   builtAt: new Date().toISOString(),
 };
 fs.writeFileSync(path.join(dist, 'iris.manifest.json'), JSON.stringify(manifest, null, 2) + '\n');

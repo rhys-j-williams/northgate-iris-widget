@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Northgate Online (retail-web host shape) + iris-widget</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    IRIS-0900 host verification page. Reproduces the retail-web (Angular 14.3.0, zone.js 0.11.8) host
+    contract for the Angular 15 widget bundle, using the pieces of the real host page that matter to
+    the widget, copied from the scratch checkout of northgate-retail-web at origin/develop (8b456b7):
+
+      - CSP meta from src/index.html (script-src 'self': no inline script, no eval);
+      - <body class="mat-typography">;
+      - src/zone-flags.ts flags, then zone.js/dist/zone.js from zone.js@0.11.8 (the version pinned in
+        retail-web package.json / package-lock.json; src/polyfills.ts imports 'zone.js/dist/zone');
+      - the widget bundle at /assets/widgets/iris.js (the mount contract path);
+      - <northgate-iris-widget> inside <div id="iris-root"> (docs/architecture.md).
+
+    retail-web origin/develop does not carry the Iris mount in source (MOL-3410 moved it to the CDN,
+    MOL-4133's vendor script is not on develop), so this page IS the host mount for verification.
+    No inline scripts: the probe is /host/probe.js so it runs under the host CSP.
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self' http://localhost:4607;
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data:;
+                 font-src 'self' data:;
+                 connect-src 'self' http://localhost:4400 http://localhost:4500 http://localhost:4606 http://localhost:4607 http://localhost:4608;
+                 frame-src 'self' blob: http://localhost:4400;
+                 frame-ancestors 'none';
+                 form-action 'self' http://localhost:4400;
+                 base-uri 'self';
+                 object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- host zone flags (src/zone-flags.ts), then the host's own zone.js -->
+  <script src="/host/zone-flags.js"></script>
+  <script src="/host/zone.js"></script>
+  <script src="/host/probe.js"></script>
+</head>
+<body class="mat-typography">
+  <mol-root>
+    <div class="mol-boot" role="status" aria-live="polite">
+      <p>Loading Northgate Online</p>
+    </div>
+  </mol-root>
+  <pre id="log"></pre>
+  <div id="iris-root">
+    <northgate-iris-widget
+      orchestrator-url="http://localhost:4517"
+      channel="retail-web"
+      sprite-url="/assets/widgets/assets/canopy/canopy-sprite.svg"
+      bearer-token="eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJjdXN0LTAwMDEiLCJzY29wZSI6ImlyaXM6Y2hhdCJ9."
+      open></northgate-iris-widget>
+  </div>
+  <!-- the widget, loaded the way the host loads it: plain script tag after the host's Zone -->
+  <script src="/assets/widgets/iris.js" defer></script>
+</body>
+</html>

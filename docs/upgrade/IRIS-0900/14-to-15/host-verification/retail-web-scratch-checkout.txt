@@ -1,0 +1,6 @@
+retail-web scratch worktree: 8b456b769200600f70731242de74fb3ed6aff453 (heads/develop) status:
+0
+31:    "@angular/core": "14.3.0",
+41:    "@northgate/canopy-ui": "3.7.2",
+59:    "zone.js": "0.11.8"
+"version": "0.11.8"

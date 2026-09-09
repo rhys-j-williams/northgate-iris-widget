@@ -1,0 +1,17 @@
+[host-check] host: northgate-retail-web @ /home/ubuntu/scratch/retail-web-host (Angular 14.3.0, zone.js 0.11.8, polyfills import 'zone.js/dist/zone', flags src/zone-flags.ts)
+[host-check] widget: main.a02a28579e486dca.js (Angular 15.2.10, zoneJsCompatible 0.12.0); @angular/core peer zone.js "~0.11.4 || ~0.12.0 || ~0.13.0"
+[host-check] http://localhost:4206/
+host zone present before bundle: true
+host zone flags: UNPATCHED_EVENTS=["scroll","mousemove"] disable_requestAnimationFrame=true
+customElements.define fired for northgate-iris-widget
+csp violation: connect-src blocked http://localhost:4517/iris/v1/sessions
+rendered .iris-root inside #iris-root: true
+rendered launcher: true
+rendered open panel: true
+window.Zone is still the host Zone object after bundle: true
+"Zone already loaded" error seen: false
+script errors: 0
+HOST-VERIFIED
+[host-check] zone.js <script> tags on page: 1 (the host's); widget bundle defines Zone: false
+[host-check] HOST-VERIFIED: main.a02a28579e486dca.js (Angular 15.2.10) registered <northgate-iris-widget> and rendered inside the retail-web host shape with the host's zone.js 0.11.8
+EXIT 0
