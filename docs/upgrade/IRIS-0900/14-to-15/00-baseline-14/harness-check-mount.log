@@ -1,0 +1,12 @@
+
+> @northgate/iris-widget@1.9.4 harness:check
+> node scripts/harness/check-mount.js
+
+[harness] http://localhost:4205/  (dist: /home/ubuntu/repos/northgate-iris-widget/dist/iris-widget)
+zone present before bundle: true
+customElements.define fired for northgate-iris-widget
+rendered .iris-root: true
+rendered launcher: true
+rendered open panel: true
+zone instances on page: 1 (widget did not bundle its own; would have thrown otherwise)
+[check-mount] MOUNTED: main.6517e7d0fd26ddb5.js registered <northgate-iris-widget> and rendered the panel
